@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { allMessages } from './actions'
 import MessageFormContainer from './components/MessageFormContainer'
+import UserFormContainer from './components/UserFormContainer'
 
 class App extends React.Component {
   source = new EventSource('http://localhost:5000/stream')
@@ -14,10 +15,11 @@ class App extends React.Component {
   }
 
   render() {
-    const messages = this.props.messages.map((message, index) => <p key={index}>{message.text}</p>)
+    const messages = this.props.messages.map((message, index) => <p key={index}>{message.user}: {message.text}</p>)
 
     return <main>
-      <MessageFormContainer />
+      <UserFormContainer user={this.props.user} />
+      <MessageFormContainer user={this.props.user} />
       {messages}
     </main>
   }
@@ -25,7 +27,8 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages
+    messages: state.messages,
+    user: state.user
   }
 }
 

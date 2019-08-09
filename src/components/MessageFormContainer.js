@@ -15,7 +15,10 @@ class MessageFormContainer extends React.Component {
 
         await request
             .post('http://localhost:5000/message')
-            .send({ message: this.state.message })
+            .send({ 
+                message: this.state.message,
+                user: this.props.user
+            })
 
         this.setState({ message: '' })
     }
