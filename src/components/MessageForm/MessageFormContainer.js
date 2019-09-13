@@ -1,6 +1,7 @@
 import React from 'react'
 import * as request from 'superagent'
 import MessageForm from './MessageForm'
+import { url } from '../../constants'
 
 class MessageFormContainer extends React.Component {
     state = { message: '' }
@@ -14,10 +15,11 @@ class MessageFormContainer extends React.Component {
         event.preventDefault()
 
         await request
-            .post('http://localhost:5000/message')
+            .post(`${url}/message`)
             .send({ 
                 message: this.state.message,
-                user: this.props.user
+                user: this.props.user,
+                channelId: this.props.channelId
             })
 
         this.setState({ message: '' })

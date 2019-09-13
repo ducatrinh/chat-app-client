@@ -1,10 +1,10 @@
 import React from 'react'
 import UserForm from './UserForm'
-import { setName } from '../actions'
+import { setName } from '../../actions'
 import { connect } from 'react-redux'
 
 class UserFormContainer extends React.Component {
-    state = { name: '' }
+    state = { name: ''}
 
     onChange = (event) => {
         const { value } = event.target
