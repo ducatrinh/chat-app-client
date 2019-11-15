@@ -1,6 +1,6 @@
-# Chat-app-client
+# Chat App - Client
 
-Client side of a chat room app.
+Client side of a chat room app. You can check out the server side repository of this project [here](https://github.com/ducatrinh/chat-app-server).
 
 ## Features
 
